@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&family=Roboto:wght@300&display=swap");
+
+.card-style {
+  border-radius: 20px !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  margin-bottom: 80px;
+  background: white !important;
+}
+
+.card-header {
+  text-align: center;
+  padding: 14px 0;
+  border-start-end-radius: 20px !important;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+.card-style p {
+  color: black;
+  font-family: sans-serif;
+  padding: 16px;
+}

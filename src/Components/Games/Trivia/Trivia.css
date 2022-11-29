@@ -1,0 +1,63 @@
+.trivia-container {
+  position: relative !important;
+}
+
+.trivia-container h3 {
+  color: rgb(37, 62, 89);
+  margin-bottom: 16px;
+}
+.img-trivia {
+  text-align: center !important;
+  margin-bottom: 36px;
+}
+.options-container {
+  width: 100% !important;
+}
+
+.trivia-btn {
+  width: 100%;
+  border: 0;
+  background: rgb(240, 245, 250);
+  text-align: start;
+  padding: 24px 34px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.more-data {
+  font-size: 1rem;
+}
+
+.v-icon {
+  margin-right: 12px;
+  font-size: 1.6rem;
+}
+
+/*  */
+/*  */
+.btn-trivia {
+  background: rgb(218, 118, 111) !important;
+  background: rgb(137, 205, 132) !important;
+  padding: 12px 0;
+}
+.btn-trivia h3 {
+  color: rgb(37, 62, 89);
+}
+
+.qu-number {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.next-question {
+  background: rgb(113, 200, 190);
+  padding: 18px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 8px;
+  width: 100%;
+  border: 0;
+}

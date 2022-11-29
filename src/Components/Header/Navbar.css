@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poor+Story&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poor+Story&family=Rubik+Distressed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Lato:wght@700&family=Poor+Story&family=Rubik+Distressed&display=swap");
+
+.header-style {
+  font-family: "Roboto", sans-serif;
+  background: rgb(37, 62, 89);
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+
+  text-align: center;
+  padding-top: 28px;
+  font-size: 1.2rem;
+  color: white !important;
+}
+
+.p-header-style {
+  max-width: 650px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+.font-style {
+  font-family: "Poor Story", cursive;
+  font-size: 1.5rem;
+}
+
+.bar-focus {
+  font-weight: bold !important;
+  font-size: 1.5rem !important;
+  color: rgb(202, 199, 199) !important;
+  opacity: 1;
+}
+
+.star,
+.star:before,
+.star:after {
+  height: 0.18em;
+  width: 0.18em;
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: twinkle 2s infinite;
+}
+@keyframes twinkle {
+  50% {
+    opacity: 1;
+  }
+}
+.star-1 {
+  top: 5em;
+  left: 18.75em;
+}
+.star-1:before {
+  content: "";
+  top: 1.9em;
+  left: -16.4em;
+  animation-delay: 0.3s;
+}
+.star-1:after {
+  content: "";
+  left: -12.8em;
+  top: 5em;
+  animation-delay: 0.7s;
+}
+.star-2 {
+  left: 11.25em;
+  top: 3.12em;
+  animation-delay: 0.2s;
+}
+.star-2:before {
+  content: "";
+  left: 2.5em;
+  top: 8.75em;
+  animation-delay: 0.9s;
+}
+.star-2:after {
+  content: "";
+  left: 7.5em;
+  top: 6.25em;
+  animation-delay: 0.35s;
+}
+.star-3 {
+  left: 15em;
+  top: 1.9em;
+  animation-delay: 0.1s;
+}
+.star-3:before {
+  content: "";
+  top: 5em;
+  left: -0.93em;
+}
+
+.star-4 {
+  top: 5em;
+  right: 18.75em;
+}
+.star-4:before {
+  content: "";
+  top: 1.9em;
+  right: 14em;
+  animation-delay: 0.3s;
+}
+.star-4:after {
+  content: "";
+  right: 12.8em;
+  top: 5em;
+  animation-delay: 0.7s;
+}
+.star-5 {
+  right: 11.25em;
+  top: 3.12em;
+  animation-delay: 0.2s;
+}
+.star-5:before {
+  content: "";
+  right: 2.5em;
+  top: 8.75em;
+  animation-delay: 0.45s;
+}
+.star-5:after {
+  content: "";
+  right: 7.5em;
+  top: 6.25em;
+  animation-delay: 0.25s;
+}
+.star-6 {
+  right: 15em;
+  top: 1.9em;
+  animation-delay: 0.5s;
+}
+.star-6:before {
+  content: "";
+  top: 5em;
+  right: 10em;
+}
+
+.star-7 {
+  top: 5em;
+  left: 8.75em;
+}
+.star-7:before {
+  content: "";
+  top: 1.9em;
+  left: 11.4em;
+  animation-delay: 1.45s;
+}
+.star-7:after {
+  content: "";
+  left: 11.8em;
+  top: 5em;
+  animation-delay: 0.45s;
+}
+.star-8 {
+  left: 11.25em;
+  top: 3.12em;
+  animation-delay: 0.11s;
+}
+.star-8:before {
+  content: "";
+  left: 12em;
+  top: 8.75em;
+  animation-delay: 0.44s;
+}
+.star-8:after {
+  content: "";
+  left: 11em;
+  top: 6.25em;
+  animation-delay: 0.1s;
+}
+.star-9 {
+  left: 15em;
+  top: 1.9em;
+  animation-delay: 2.47s;
+}
+.star-9:before {
+  content: "";
+  top: 5em;
+  right: 22em;
+}
+
+.star-10 {
+  top: 4em;
+  right: 20.75em;
+}
+.star-10:before {
+  content: "";
+  top: 1.9em;
+  right: 10em;
+  animation-delay: 0.3s;
+}
+.star-10:after {
+  content: "";
+  right: 12em;
+  top: 3em;
+  animation-delay: 0.7s;
+}
+.star-11 {
+  right: 8.5em;
+  top: 3.12em;
+  animation-delay: 0.2s;
+}
+.star-11:before {
+  content: "";
+  right: 8em;
+  top: 8.75em;
+  animation-delay: 0.9s;
+}
+.star-11:after {
+  content: "";
+  right: 17em;
+  top: 1em;
+  animation-delay: 2.35s;
+}
+.star-12 {
+  right: 19em;
+  top: 4em;
+  animation-delay: 0.1s;
+}
+.star-12:before {
+  content: "";
+  top: 5em;
+  right: 22em;
+}
+
+.shooting-star {
+  height: 0.18em;
+  width: 2.5em;
+  background-color: #ffffff;
+  transform: rotate(-30deg);
+  position: absolute;
+  right: -0.62em;
+  opacity: 0.2;
+  animation: shooting-str 5s infinite;
+}
+@keyframes shooting-str {
+  10% {
+    transform: rotate(-30deg) translate(-34em, 0);
+  }
+  100% {
+    transform: rotate(-30deg) translate(-34em, 0);
+  }
+}

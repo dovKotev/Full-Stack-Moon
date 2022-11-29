@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&family=Raleway:ital@1&display=swap");
+
+.card-d-container {
+  padding: 24px;
+}
+
+/* .card-d-data {
+  padding: 12px;
+} */
+
+.card-d-title {
+  font-family: Raleway, sans-serif;
+  font-weight: bold;
+}
+img {
+  max-height: 400px;
+}
+/* p {
+  font-family: Raleway, sans-serif;
+} */
+
+.img-d {
+  margin-top: 16px;
+}
+
+.quantity-d {
+  width: 300px;
+}
+
+.plus-minus {
+  width: 150px;
+}
+
+.amount-btn {
+  padding: 12px 20px;
+  background: rgb(213, 209, 211);
+  cursor: pointer;
+}
+
+.edit-buttons {
+  margin-top: 18px;
+  padding: 18px;
+  margin-left: 8px;
+}
+
+.bt-delete {
+  margin-right: 24px;
+}

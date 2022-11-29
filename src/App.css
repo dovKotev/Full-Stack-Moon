@@ -1,0 +1,14 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Poor+Story&display=swap"); */
+
+.main-style {
+  background: rgb(239, 243, 247);
+}
+
+/* h2 {
+  font-family: Lato, sans-serif;
+} */
+
+::selection {
+  color: white;
+  background: black;
+}

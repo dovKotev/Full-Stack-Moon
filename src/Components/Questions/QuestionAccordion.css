@@ -1,0 +1,33 @@
+.content {
+  margin-bottom: 88px !important;
+}
+
+.one-item {
+  background: rgb(240, 245, 250);
+  margin: 20px 0;
+  padding: 28px 38px;
+  cursor: pointer;
+}
+
+.question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(37, 62, 89);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.8s cubic-bezier(0, 1, 0, 1);
+  font-family: Josefin Sans;
+  font-size: 1.2rem;
+}
+
+.answer.open {
+  margin-top: 28px;
+  max-height: 9999px !important;
+  transition: all 0.8s cubic-bezier(1, 0, 1, 0) !important;
+}

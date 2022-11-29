@@ -1,0 +1,28 @@
+.one-card {
+  width: 170px !important;
+  height: 220px !important;
+  border-radius: 24px;
+  text-align: center;
+  border: 2px solid rgb(37, 62, 89);
+  background: rgb(240, 245, 250);
+}
+
+.close-card {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-vTJnZrpLVCOl6m-VTAqni7sv8W4UpTnXFw&usqp=CAU");
+  background-position: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-img {
+  width: 130px !important;
+  height: 130px !important;
+}
+
+.card-span {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(37, 62, 89);
+  word-spacing: 10rem;
+}
