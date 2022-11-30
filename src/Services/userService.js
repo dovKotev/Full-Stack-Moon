@@ -12,10 +12,6 @@ export function getUser() {
   return httpServices.get("/users/userdata");
 }
 
-export function addToCart(product) {
-  return httpServices.put("/users/add-card", product);
-}
-
 export function addToCartNew(product) {
   return httpServices.put("/users/add-product", product);
 }
@@ -27,3 +23,7 @@ export function updateCart(cart) {
 export function deleteProduct(id) {
   return httpServices.put("/users/delete-product", id);
 }
+
+// export function addToCart(product) {
+//   return httpServices.put("/users/add-card", product);
+// }

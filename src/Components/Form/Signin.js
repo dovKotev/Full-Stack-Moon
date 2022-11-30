@@ -20,7 +20,6 @@ function SigninrForm({statusChanged}) {
     if (!validationHandler(schemaObject.signin)) return;
 
     try {
-      // await signinUser({...form});
       const {data} = await signinUser(_.pick(form, ["email", "password"]));
 
       localStorage.removeItem("token");
