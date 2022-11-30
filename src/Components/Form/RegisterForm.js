@@ -9,7 +9,7 @@ import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 import _ from "lodash";
 
-function RegisterForm({status, email, biz, name, statusChanged}) {
+function RegisterForm({statusChanged}) {
   const navigate = useNavigate();
 
   const {validationHandler, checkValidation, setErrors, form, errors} =
