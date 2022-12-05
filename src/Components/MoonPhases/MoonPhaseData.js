@@ -9,9 +9,19 @@ import moonPhasesImg from "../../Helpers/moonPhasesImg";
 function MoonPhaseData() {
   const date = new Date().toLocaleDateString();
   const {moonData} = useMoonData();
-  console.log(moonData?.moonPhase.current.text);
   const currentPhase = moonData?.moonPhase.current.text;
-  const currentMoonImage = moonPhasesImg[currentPhase];
+  const currentMoonImage = moonData
+    ? moonPhasesImg[currentPhase]
+    : moonPhasesImg["Full moon"];
+
+  const currentMoonState = moonData ? currentPhase : "Full moon";
+  const currentMoonFranction = moonData
+    ? moonData?.moonPhase.current.value
+    : "0.5";
+
+  const closetMoon = moonData
+    ? moonData?.moonPhase.closest.text
+    : "Third Quater";
 
   return (
     <>
@@ -51,23 +61,22 @@ function MoonPhaseData() {
                   </div>
                   <div className="col-md-5 moon-state">
                     <h3>Moon Phase for today {date}</h3>
-
-                    <div className="text-center">
+                    <div className="text-center w-100">
                       <img
                         src={currentMoonImage}
-                        width="450px"
+                        width="300px"
                         alt="moonPhase"
                       />
                     </div>
                     <div className="data-moon">
                       <p>
-                        Moon name: <strong>{"Full Moon"}</strong>
+                        Moon name: <strong>{currentMoonState}</strong>
                       </p>
                       <p>
-                        Closest Moon: <strong>{"Vaning Crescent"}</strong>
+                        Closest Moon: <strong>{closetMoon}</strong>
                       </p>
                       <p>
-                        Moon Fraction: <strong>{0.99457}</strong>
+                        Moon Fraction: <strong>{currentMoonFranction}</strong>
                       </p>
                     </div>
                   </div>
@@ -120,108 +129,111 @@ function MoonPhaseData() {
                   </p>
                 </div>
                 <div className="sec-1">
-                  <table class="table table-bordered table-dark">
-                    <thead>
-                      <tr class="tableizer-firstrow">
-                        <th colspan="7">
-                          Principal and Intermediate Phases of the Moon
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Moon Phase</td>
-                        <td>Northern Hemisphere</td>
-                        <td>Southern Hemisphere</td>
-                        <td>Visibility</td>
-                        <td>Average moonrise time</td>
-                        <td>Mid-phase standard time</td>
-                        <td>Average moonset time</td>
-                      </tr>
-                      <tr>
-                        <td>New Moon</td>
-                        <td colspan="2">
-                          Disc entirely in Sun's shadow - lit by earthshine only
-                        </td>
-                        <td>Invisible - too close to the Sun</td>
-                        <td>6 am - 06.00</td>
-                        <td>Noon</td>
-                        <td>6 pm - 18:00</td>
-                      </tr>
-                      <tr>
-                        <td>Waxing Crescent</td>
-                        <td>Right side, 0.1% - 49.9% lit disc</td>
-                        <td>Left side, 0.1 - 49.9% lit disc</td>
-                        <td>Late morning to post-dusk</td>
-                        <td>9 am - 09:00</td>
-                        <td>3 pm - 15:00</td>
-                        <td>9 pm - 21:00</td>
-                      </tr>
-                      <tr>
-                        <td>First Quarter</td>
-                        <td>Right side, 50% lit disc</td>
-                        <td>Left side, 50% lit disc</td>
-                        <td>Afternoon and early evening</td>
-                        <td>Noon</td>
-                        <td>6 pm - 18:00</td>
-                        <td>Midnight - 00:00</td>
-                      </tr>
-                      <tr>
-                        <td>Waxing Gibbous</td>
-                        <td>Right side, 50.1% - 99.9% lit disc</td>
-                        <td>Left side, 50.1% -99.9% lit disc</td>
-                        <td>Late afternoon and during the night</td>
-                        <td>3 pm - 15:00</td>
-                        <td>9 pm - 21:00</td>
-                        <td>3 am - 03:00</td>
-                      </tr>
-                      <tr>
-                        <td>Full Moon</td>
-                        <td colspan="2">100% Illuminated disc</td>
-                        <td>Sunset to sunrise - all night</td>
-                        <td>6 pm - 18:00</td>
-                        <td>Midnight - 00:00</td>
-                        <td>6 am - 06:00</td>
-                      </tr>
-                      <tr>
-                        <td>Waning Gibbous</td>
-                        <td>Left side, 99.9% - 50.1% lit disc</td>
-                        <td>Right side, 99.9% - 50.1% lit disc</td>
-                        <td>Most of the night and early morning</td>
-                        <td>9 pm - 21:00</td>
-                        <td>3 am - 03:00</td>
-                        <td>9 am - 09:00</td>
-                      </tr>
-                      <tr>
-                        <td>Last Quarter</td>
-                        <td>Left side, 50% lit disc</td>
-                        <td>Right side, 50% lit disc</td>
-                        <td>Late night and morning</td>
-                        <td>Midnight - 00:00</td>
-                        <td>6 am - 06:00</td>
-                        <td>Noon</td>
-                      </tr>
-                      <tr>
-                        <td>Waning Crescent</td>
-                        <td>Left side, 49.9% - 0.1% lit disc</td>
-                        <td>Right side, 49.9% - 0.1% lit disc</td>
-                        <td>Pre-dawn to early afternoon</td>
-                        <td>3 am - 03:00</td>
-                        <td>9 am - 09:00</td>
-                        <td>3 pm - 15:00</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <div className="table-responsive">
+                    <table class="table table-bordered table-dark">
+                      <thead>
+                        <tr class="tableizer-firstrow">
+                          <th colspan="7">
+                            Principal and Intermediate Phases of the Moon
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Moon Phase</td>
+                          <td>Northern Hemisphere</td>
+                          <td>Southern Hemisphere</td>
+                          <td>Visibility</td>
+                          <td>Average moonrise time</td>
+                          <td>Mid-phase standard time</td>
+                          <td>Average moonset time</td>
+                        </tr>
+                        <tr>
+                          <td>New Moon</td>
+                          <td colspan="2">
+                            Disc entirely in Sun's shadow - lit by earthshine
+                            only
+                          </td>
+                          <td>Invisible - too close to the Sun</td>
+                          <td>6 am - 06.00</td>
+                          <td>Noon</td>
+                          <td>6 pm - 18:00</td>
+                        </tr>
+                        <tr>
+                          <td>Waxing Crescent</td>
+                          <td>Right side, 0.1% - 49.9% lit disc</td>
+                          <td>Left side, 0.1 - 49.9% lit disc</td>
+                          <td>Late morning to post-dusk</td>
+                          <td>9 am - 09:00</td>
+                          <td>3 pm - 15:00</td>
+                          <td>9 pm - 21:00</td>
+                        </tr>
+                        <tr>
+                          <td>First Quarter</td>
+                          <td>Right side, 50% lit disc</td>
+                          <td>Left side, 50% lit disc</td>
+                          <td>Afternoon and early evening</td>
+                          <td>Noon</td>
+                          <td>6 pm - 18:00</td>
+                          <td>Midnight - 00:00</td>
+                        </tr>
+                        <tr>
+                          <td>Waxing Gibbous</td>
+                          <td>Right side, 50.1% - 99.9% lit disc</td>
+                          <td>Left side, 50.1% -99.9% lit disc</td>
+                          <td>Late afternoon and during the night</td>
+                          <td>3 pm - 15:00</td>
+                          <td>9 pm - 21:00</td>
+                          <td>3 am - 03:00</td>
+                        </tr>
+                        <tr>
+                          <td>Full Moon</td>
+                          <td colspan="2">100% Illuminated disc</td>
+                          <td>Sunset to sunrise - all night</td>
+                          <td>6 pm - 18:00</td>
+                          <td>Midnight - 00:00</td>
+                          <td>6 am - 06:00</td>
+                        </tr>
+                        <tr>
+                          <td>Waning Gibbous</td>
+                          <td>Left side, 99.9% - 50.1% lit disc</td>
+                          <td>Right side, 99.9% - 50.1% lit disc</td>
+                          <td>Most of the night and early morning</td>
+                          <td>9 pm - 21:00</td>
+                          <td>3 am - 03:00</td>
+                          <td>9 am - 09:00</td>
+                        </tr>
+                        <tr>
+                          <td>Last Quarter</td>
+                          <td>Left side, 50% lit disc</td>
+                          <td>Right side, 50% lit disc</td>
+                          <td>Late night and morning</td>
+                          <td>Midnight - 00:00</td>
+                          <td>6 am - 06:00</td>
+                          <td>Noon</td>
+                        </tr>
+                        <tr>
+                          <td>Waning Crescent</td>
+                          <td>Left side, 49.9% - 0.1% lit disc</td>
+                          <td>Right side, 49.9% - 0.1% lit disc</td>
+                          <td>Pre-dawn to early afternoon</td>
+                          <td>3 am - 03:00</td>
+                          <td>9 am - 09:00</td>
+                          <td>3 pm - 15:00</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
                 <div className="sec-1">
                   <p>
-                    The<strong>New Moon</strong> appears higher on the summer
+                    The <strong>New Moon</strong> appears higher on the summer
                     solstice than on the winter solstice, while the First
                     Quarter Moon appears higher on the spring equinox than on
                     the autumnal/fall equinox.
                   </p>
                   <p>
-                    The<strong>Full Moon</strong> appears higher on the winter
+                    The <strong>Full Moon</strong> appears higher on the winter
                     solstice than on the summer solstice, while the Last Quarter
                     Moon appears higher on the autumnal/fall equinox than on the
                     spring equinox.
@@ -255,7 +267,7 @@ function MoonPhaseData() {
                     Southern Hemisphere.
                   </p>
                   <p>
-                    If the <a href="https://nineplanets.org/the-sun/">Sun</a>{" "}
+                    If the <a href="https://nineplanets.org/the-sun/">Sun</a>
                     and the Moon are aligned on Earth’s same side, then the Moon
                     is termed as “new,” and the side of the Moon facing Earth is
                     not illuminated by the Sun.

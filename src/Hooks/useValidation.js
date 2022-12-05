@@ -2,6 +2,7 @@ import {useState} from "react";
 import Joi from "joi";
 
 function useValidation() {
+  const [waiting, setWaiting] = useState(false);
   const [form, setForm] = useState({});
   const [errors, setErrors] = useState({});
 
@@ -25,7 +26,16 @@ function useValidation() {
     setErrors({...errors, [name]: error.details[0].message});
   }
 
-  return {validationHandler, checkValidation, setErrors, setForm, form, errors};
+  return {
+    validationHandler,
+    checkValidation,
+    setErrors,
+    setForm,
+    setWaiting,
+    form,
+    errors,
+    waiting,
+  };
 }
 
 export default useValidation;

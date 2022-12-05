@@ -34,7 +34,7 @@ function CartShop() {
           <Panel
             content={`${navbarData.cart} full with ${userProducts?.length} products 🌚`}
           />
-          <div className="table-responsive mt-4">
+          <div className="table-responsive mt-4 w-100">
             <table className="table">
               <thead>
                 <tr>
@@ -67,24 +67,22 @@ function CartShop() {
               })}
             </table>
           </div>
-          <div className="d-flex justify-content-between mt-4">
-            <div className="row justify-content-between my-total">
-              <p className="col-6">Cart Totals</p>
-              <p className="col-4">{`$${sum}.00`}</p>
-            </div>
+          <div className="row p-3 justify-content-between mt-4 w-100">
             <button
+              // style={{cursor: "not-allowed"}}
               type="button"
-              className="btn btn-dark p-3"
+              className="btn btn-dark p-3 col-12 col-md-3 mb-4"
               onClick={() => saveChanged(userProducts)}
             >
               Updata Cart
             </button>
+            <div className="col-12 cart-pay row justify-content-between my-total col-md-5 mb-4">
+              <p className="col-6">Cart Totals</p>
+              <p className="col-4">{`$${sum}.00`}</p>
+            </div>
           </div>
-          <button
-            type="button"
-            className="btn btn-dark p-3 mt-4"
-            style={{width: "500px", maxWidth: "60%"}}
-          >
+
+          <button type="button" className="p-3 btn-check-out">
             Check Out
           </button>
         </div>

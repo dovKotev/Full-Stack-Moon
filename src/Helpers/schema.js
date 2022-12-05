@@ -49,7 +49,7 @@ const schemaObject = {
     name: Joi.string().required().min(3).max(25).label("Name"),
     description: Joi.string().required().min(10).max(700).label("Description"),
     image: Joi.string().label("Image").allow(""),
-    price: Joi.number().required().min(1).max(10000).label("price"),
+    price: Joi.number().required().min(10).max(10000).label("price"),
   },
 };
 

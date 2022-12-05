@@ -9,26 +9,35 @@ import {createCard} from "../../Services/cardService";
 import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 
-function CreateCardForm({status, email, biz, name, statusChanged}) {
+function CreateCardForm() {
   const navigate = useNavigate();
 
-  const {validationHandler, checkValidation, setErrors, form, errors} =
-    useValidation();
+  const {
+    validationHandler,
+    checkValidation,
+    setErrors,
+    setWaiting,
+    form,
+    errors,
+    waiting,
+  } = useValidation();
+  if (waiting) return;
 
   const submitHandler = async (e) => {
     e.preventDefault();
     if (!validationHandler(schemaObject.createCard)) return;
 
     try {
-      const {data} = await createCard({...form});
-      console.log(data);
-      toast.success("You are Create a new Card succussfuly!", {
+      setWaiting(true);
+      await createCard({...form});
+      toast.success("You have Created a new Card succussfuly!", {
         theme: "dark",
       });
 
       navigate("/moon-shop");
     } catch ({response}) {
       setErrors({email: response});
+      setWaiting(false);
     }
   };
 
@@ -77,7 +86,7 @@ function CreateCardForm({status, email, biz, name, statusChanged}) {
                   error={errors.description}
                 />
                 <div className="mt-4">
-                  <ButtonForm name="Create Card" />
+                  <ButtonForm name="Create Card" waiting={waiting} />
                 </div>
               </form>
             </>

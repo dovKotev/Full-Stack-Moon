@@ -10,17 +10,26 @@ import {toast} from "react-toastify";
 import {useNavigate} from "react-router-dom";
 import _ from "lodash";
 
-function AdminForm({status, email, biz, name, statusChanged}) {
+function AdminForm({statusChanged}) {
   const navigate = useNavigate();
 
-  const {validationHandler, checkValidation, setErrors, form, errors} =
-    useValidation();
+  const {
+    validationHandler,
+    checkValidation,
+    setErrors,
+    setWaiting,
+    form,
+    errors,
+    waiting,
+  } = useValidation();
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (waiting) return;
     if (!validationHandler(schemaObject.registerAdmin)) return;
 
     try {
+      setWaiting(true);
       await createUser({...form, biz: true});
       const {data} = await signinUser(_.pick(form, ["email", "password"]));
 
@@ -35,6 +44,7 @@ function AdminForm({status, email, biz, name, statusChanged}) {
       navigate("/");
     } catch ({response}) {
       setErrors({email: response.data});
+      setWaiting(false);
     }
   };
 
@@ -84,7 +94,7 @@ function AdminForm({status, email, biz, name, statusChanged}) {
                   error={errors.admin}
                 />
                 <div className="mt-4">
-                  <ButtonForm name="register" />
+                  <ButtonForm name="register" waiting={waiting} />
                 </div>
               </form>
             </>

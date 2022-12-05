@@ -1,8 +1,5 @@
 import {BsCart4} from "react-icons/bs";
-import DeleteModal from "../Modals/DeleteModal";
-// import {BsCart3} from "react-icons/bs";s
-import {Link} from "react-router-dom";
-function CartSign({status}) {
+function CartSign() {
   return (
     <>
       <BsCart4

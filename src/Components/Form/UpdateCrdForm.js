@@ -11,8 +11,16 @@ import {useNavigate} from "react-router-dom";
 import {useEffect} from "react";
 
 function UpdateCardForm({card}) {
-  const {validationHandler, checkValidation, setErrors, setForm, form, errors} =
-    useValidation();
+  const {
+    validationHandler,
+    checkValidation,
+    setErrors,
+    setForm,
+    setWaiting,
+    form,
+    errors,
+    waiting,
+  } = useValidation();
 
   useEffect(() => {
     function getCardDetails() {
@@ -30,6 +38,7 @@ function UpdateCardForm({card}) {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (waiting) return;
     if (!validationHandler(schemaObject.createCard)) return;
     const newData = {
       ...card,
@@ -40,15 +49,16 @@ function UpdateCardForm({card}) {
     };
 
     try {
-      const {data} = await updateCard(newData);
-      console.log(data);
+      setWaiting(true);
+      await updateCard(newData);
       toast.success("You are Update  Card succussfuly!", {
         theme: "dark",
       });
 
       navigate("/moon-shop");
     } catch ({response}) {
-      setErrors({email: response});
+      setErrors({image: response});
+      setWaiting(false);
     }
   };
   const nameShort = card.name.split(" ").slice(0, 2).join(" ");
@@ -101,7 +111,7 @@ function UpdateCardForm({card}) {
                   value={form.description}
                 />
                 <div className="mt-4">
-                  <ButtonForm name="Update Card" />
+                  <ButtonForm name="Update Card" waiting={waiting} />
                 </div>
               </form>
             </>

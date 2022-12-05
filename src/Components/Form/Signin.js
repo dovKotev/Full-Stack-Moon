@@ -12,14 +12,23 @@ import _ from "lodash";
 function SigninrForm({statusChanged}) {
   const navigate = useNavigate();
 
-  const {validationHandler, checkValidation, setErrors, form, errors} =
-    useValidation();
+  const {
+    validationHandler,
+    checkValidation,
+    setErrors,
+    setWaiting,
+    form,
+    errors,
+    waiting,
+  } = useValidation();
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    if (waiting) return;
     if (!validationHandler(schemaObject.signin)) return;
 
     try {
+      setWaiting(true);
       const {data} = await signinUser(_.pick(form, ["email", "password"]));
 
       localStorage.removeItem("token");
@@ -32,6 +41,7 @@ function SigninrForm({statusChanged}) {
       navigate("/");
     } catch ({response}) {
       setErrors({email: response.data});
+      setWaiting(false);
     }
   };
 
@@ -64,7 +74,7 @@ function SigninrForm({statusChanged}) {
                   error={errors.password}
                 />
                 <div className="mt-4">
-                  <ButtonForm name="Sign" />
+                  <ButtonForm name="Sign" waiting={waiting} />
                 </div>
               </form>
             </>

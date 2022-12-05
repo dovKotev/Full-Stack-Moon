@@ -13,7 +13,7 @@ function useMoonData() {
       const {data} = await getMoonData();
       setMoonData(data.data[0]);
     } catch (err) {
-      console.log(err);
+      setMoonData(null);
     }
   }
   return {moonData};

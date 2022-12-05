@@ -155,19 +155,19 @@
   animation-delay: 0.45s;
 }
 .star-8 {
-  left: 11.25em;
+  left: 8.5.25em;
   top: 3.12em;
   animation-delay: 0.11s;
 }
 .star-8:before {
   content: "";
-  left: 12em;
+  left: 9em;
   top: 8.75em;
   animation-delay: 0.44s;
 }
 .star-8:after {
   content: "";
-  left: 11em;
+  left: 7em;
   top: 6.25em;
   animation-delay: 0.1s;
 }

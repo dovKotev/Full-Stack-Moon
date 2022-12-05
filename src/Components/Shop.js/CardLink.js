@@ -23,14 +23,27 @@ function CardLink({status}) {
   } = useCardDetails();
 
   const addProductToCart = async () => {
-    if (quantity <= 0) return toast("You need add at least one product!");
+    if (quantity <= 0)
+      return toast.warning("You need add at least one product!", {
+        position: "top-center",
+        autoClose: false,
+        hideProgressBar: false,
+        theme: "dark",
+      });
     if (status === "unregistered")
       return toast("You have to sign for this action");
     const cart = {cardID: card._id, quantity: quantity};
     try {
       await addToCartNew(cart);
-      toast("Add To Cart Succussfully");
-    } catch (err) {}
+      return toast.success("Add To Cart Succussfully", {
+        position: "top-center",
+        autoClose: false,
+        hideProgressBar: false,
+        theme: "dark",
+      });
+    } catch (err) {
+      toast("Sorry Error happend");
+    }
   };
   return (
     <>
@@ -53,12 +66,12 @@ function CardLink({status}) {
             </Link>
           )}
         </div>
-        <div className="card-d-container row justify-content-around mb-4">
+        <div className="card-d-container row justify-content-around mb-4 m-0">
           <div className="col-sm-5 m-0 img-d">
             <img src={card.image} width="100%" alt={card.name} />
           </div>
           <div className="card-d-data col-sm-6">
-            <h1 className="card-d-title mb-3">{card.name}</h1>
+            <h1 className="card-d-title mb-3 mt-3">{card.name}</h1>
             <h4>{`$${card.price}.00`}</h4>
             <p>{card.description}</p>
             <div className="quantity-d d-flex justify-content-around mt-5">
@@ -71,28 +84,42 @@ function CardLink({status}) {
                   +
                 </div>
               </div>
-              <button
-                type="button"
-                className="btn btn-dark"
-                style={{borderRadius: "0"}}
-                onClick={addProductToCart}
-              >
-                Add to cart
-              </button>
+
+              {status === "unregistered" ? (
+                <>
+                  <button
+                    type="button"
+                    className="btn btn-dark"
+                    style={{borderRadius: "0"}}
+                    onClick={() => setShowAlert(true)}
+                  >
+                    Add to cart
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-dark"
+                  style={{borderRadius: "0"}}
+                  onClick={addProductToCart}
+                >
+                  Add to cart
+                </button>
+              )}
             </div>
             {status === "Admin" && (
               <>
                 <div className="edit-buttons">
                   <button
                     type="button"
-                    className="btn btn-danger bt-delete"
+                    className="btn btn-danger bt-delete mb-3"
                     onClick={() => setShowDelete(true)}
                   >
-                    Delete Product {status}
+                    Delete Product
                   </button>
                   <button
                     type="button"
-                    className="btn btn-warning"
+                    className="btn btn-warning mb-3"
                     onClick={() => setShowEdit(true)}
                   >
                     Edit Product

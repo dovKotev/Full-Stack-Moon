@@ -25,7 +25,7 @@ function DataAbout() {
                       </p>
                       <BackgroundImage url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTT16Kq7lohEfWPNOAuoOl8wOuEiDwamz_0sQ&usqp=CAU" />
 
-                      <p className="h4 mb-5 mt-1">
+                      <p className="h4 mb-5" style={{marginTop: "-15px"}}>
                         The moon is special in its proximity to us, in its
                         constant change and in what it symbolizes, it is not for
                         nothing that it appears in many books, stories and
@@ -46,7 +46,7 @@ function DataAbout() {
                       </p>
 
                       <BackgroundImage url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSvYjiCZ5dGfq6dcvFwzEh50suH8SRN-CnNg&usqp=CAU" />
-                      <p className="h4 mb-5 mt-4">
+                      <p className="h4 mb-5 mt-4" style={{marginTop: "-15px"}}>
                         In addition, we have a store where people can post their
                         creations on the moon such as jewelry or works of art
                         and you can purchase them from us in our store, so that

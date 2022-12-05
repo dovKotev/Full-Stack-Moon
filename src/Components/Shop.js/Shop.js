@@ -61,7 +61,7 @@ function Shop({status}) {
         )}
         {!wait && (
           <>
-            <div className="row">{cardsArray}</div>
+            <div className="row p-0 m-0">{cardsArray}</div>
           </>
         )}
       </div>
